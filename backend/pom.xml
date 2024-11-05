@@ -6,6 +6,7 @@
 		<artifactId>taf</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+	<groupId>ca.etsmtl.taf</groupId>
 	<artifactId>backend</artifactId>
 	<dependencies>
 	    <dependency>
@@ -35,10 +36,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.31</version>
-			<scope>runtime</scope>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>3.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -83,10 +83,17 @@
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>5.5</version> <!-- Use the latest version available -->
+		</dependency>
+
+		<!-- Module dependencies -->
+		<dependency>
+			<groupId>ca.etsmtl.taf</groupId>
+			<artifactId>testrail</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 

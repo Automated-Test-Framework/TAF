@@ -1,9 +1,9 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://nostrasoft.com:3306/nostr321_taf-db
-    username: nostr321_taf
-    password: JKaVLX75iHwtrHc
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/taf-db
+    username: taf
+    password: taf
   jpa:
     defer-datasource-initialization: true
     hibernate:
@@ -11,14 +11,14 @@ spring:
       dialect : ${spring.jpa.properties.hibernate.dialect}
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MariaDBDialect
   messages:
     basename: validation
     encoding: ISO-8859-1
   sql:
     init:
       mode: always
-      platform: mysql
+      platform: mariadb
 taf:
   app:
     jwtSecret: bezKoderSecretKey
@@ -27,6 +27,12 @@ taf:
     testAPI_port: 8082
     selenium_container_url: http://selenium
     selenium_container_port: 8090
+
+testrail:
+  base-url: "https://leofornoff.testrail.io/index.php?/api/v2/"
+  username: "leo.fornoff.1@ens.etsmtl.ca"
+  password: "Valid8-Outpost2-Caravan0-Unlovable9-Easter7"
+
 
 server:
   port: 8083

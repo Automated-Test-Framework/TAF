@@ -1,11 +1,13 @@
-FROM maven:3.8.6-eclipse-temurin-17 as builder
+FROM maven:3.9.9-sapmachine-17 as builder
 
-RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update
+ARG CHROME_VERSION="130.0.6723.58-1"
+
+RUN apt-get update
 # RUN apt-get install -y gconf-service libasound2 libatk1.0-0 libcairo2 libcups2 libfontconfig1 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libxss1 fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
 RUN apt-get install -y wget
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
+RUN wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
+RUN apt-get install -y ./google-chrome-stable_${CHROME_VERSION}_amd64.deb
 
 WORKDIR /
 COPY pom.xml .
